@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" th:src="@{/resources/js/jquery.countdown.js}" ></script>
+<script type="text/javascript" th:src="@{/resources/js/jquery.countdown.min.js}" ></script>
+</head>
+
+<body>
+
+<label data-countdown = "2015/06/28 12:30"></label>
+
+ <script type="text/javascript">
+		$('[data-countdown]').each(function() {
+			var $this = $(this), finalDate = $(this).data('countdown');
+			$this.countdown(finalDate, function(event) {
+				$this.html(event.strftime('%D days %H:%M:%S'));
+			}).on('finish.countdown', function(event) {
+				$this.html("JustStop");
+				$('button#countdown').addClass('disabled');
+			});
+		});
+	</script>
+</body>
+</html>

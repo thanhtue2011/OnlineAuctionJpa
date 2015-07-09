@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Online Auction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.css}" />
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/main.css}" />
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/style.css}" />
+<script type="text/javascript" charset="UTF-8"  th:src="@{/resources/js/sellformat.js}"></script>
+</head>
+<body>
+<!--HEADRER-->
+<div class="header">
+     <div class="topheader">
+    	<div class="topheader-inner w1020px marginauto">	
+        	<ul class="pull-right">
+            
+                <li th:if="${user=='anonymousUser'}"><a th:href="@{/login}">Login</a></li>
+                
+                <li th:if="${user=='anonymousUser'}"><a th:href="@{/register}">Register</a></li>
+                 <li th:if="${user!='anonymousUser'}"><a th:href="@{/thongtin}"><span   th:text="${user}"></span></a></li>
+                <li><a th:href="@{/demnguoc}">Lien he</a></li>
+               <li><a th:if="${user!='anonymousUser'}" th:href="@{/logout}">Logout</a></li>
+            </ul>
+            
+        </div>
+    </div>
+       
+   <div class="branch">
+    	<div class="w1020px marginauto">
+			<div class="pull-left">
+            <img src="resources/images/icon-logo/onlineauction.gif" />
+            </div>
+         </div>  
+        
+    </div> 
+	
+    <div class="navbar">
+    	<div class="navbar-inner">
+        	<div class="w1020px marginauto">
+            	<ul class="nav ">
+                    <li class="active">
+                    <a th:href="@{/index}">Home</a>
+                    </li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="#">Dang dau gia</a></li>
+                    <li><a href="#">Mua hang</a></li>
+                     <li><a href="#">Ban hang-Dau gia</a></li>
+                    <li th:if="${user!='anonymousUser'}"><a th:href="@{/capnhathang}">Cap nhat hang</a></li>
+                    <li><a href="#">Ket qua</a></li>
+                  
+                </ul>
+                <ul class="nav pull-right">
+                	
+                    <li class="divider-vertical1">
+                    <input type="text" name="search"></input>
+                    </li>
+		          <li class="divider-vertical2">
+		          <input type="submit" name="sbmsearch" value="Search"></input>
+		          </li>	
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div></div>
+
+</div>
+<!--END-HEADRER-->
+
+
+<!--MAINBODY-->
+<div class="mainbody left-fl">
+	<div class="mainbody-content w1020px marginauto">
+    	<div class="left-area w220px left-fl">
+        	<div class="block menu-list branch-mobile "><h4 class="pd5x10">Catelogy</h4>
+        	<!--Menu Sach  -->
+            	<ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Books</span>
+                           
+                        </a>
+                        
+                        
+                    </li> 
+                    
+                </ul>
+                <!-- menu bong -->
+                <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Bong</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Kinh</span>
+                            
+                        </a>
+                        
+                        
+                    </li> 
+                    
+                </ul>
+                 <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Balo</span>
+                            
+                        </a>
+                       
+                        
+                    </li> 
+                    
+                </ul>
+                 <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Usb</span>
+                            
+                        </a>
+                        
+                        
+                    </li> 
+                    
+                </ul>
+                <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Loa</span>
+                            
+                        </a>
+                      
+                        
+                    </li> 
+                    
+                </ul>
+                <!--end catelogy  -->
+        
+          
+            <div class="block bannerw220"><!--Chi lay anh trong banner, Tai phan minh hoa dang lay trong phan logo-->
+            	<ul class="clean">
+                	<li><a href="#">
+                    	<img src="resources/images/banner/banner1.png" />
+                    	</a>
+                    </li>
+                    <li><a href="#">
+                    	<img src="resources/images/banner/banner2.png" />
+                    	</a>
+                    </li>
+                    <li><a href="#">
+                    	<img src="resources/images/product/Image 33.png" />
+                    	</a>
+                    </li>
+                    <li><a href="#">
+                    	<img src="resources/images/product/Image 32.png" />
+                    	</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        <!--Vung ben phai--><!--Vung ben phai--><!--Vung ben phai--><!--Vung ben phai--><!--Vung ben phai-->
+        <div class="right-area w775px left-fl pd10">
+   
+        	<!--END=Accessories-->
+            <div class="clear wp100"></div>
+            <!--GridProduct-->
+            
+            <!--GridProduct-->
+            <!--Nhom san pham-->
+            <div class="group product clearfix">
+            <!--title-->
+            <div class="header2">
+                <span class="title">
+                <span>
+                	<a href="#">Form ban hang dau gia</a>
+                </span>
+                </span>
+            </div>
+         <div class="formbanhang" >
+            
+               <form th:action="@{/banhang}"  method="POST" th:object="${item}" id="formbanhang" onsubmit="return checkForm();" enctype="multipart/form-data">
+               <table>
+               <tr><td><b>Tieu de:</b></td><td>
+               <input type="text" id="Title" name="title" onblur="validtitle();" th:field="${item.title}"></input></td><td><span id="ftitle" style="color:#FF0000"></span></td></tr>
+               <tr><td><b>Mo ta:</b></td><td><textarea id="Descreption" rows="5" cols="20" name="mota" th:field="${item.description}" onblur="validmota();"></textarea></td><td><span id="fmota" style="color:#FF0000"></span></td></tr>
+               <tr><td><b>Danh muc:</b></td><td><select name="category" th:field="${item.category.id_category}">
+               <option th:each="category : ${listcategory}" th:value="${category.id_category}" th:text="${category.title}"></option>
+               </select></td></tr>
+               <tr><td><b>Hinh anh:</b></td><td><input type="file" id="Images" name="file"></input></td></tr>
+               <tr><td><b>Loai ban:</b></td><td><select id="Loaiban" name="loaiban" th:field="${item.statusbidSell}">
+               <option value="Dau gia">Dau gia</option>
+               <option value="Ban online">Ban online</option>
+              
+               </select></td></tr>
+               <tr><td><b>Ngay bat dau:</b></td><td><input type="text" name="ngaybatdau" onblur="validdatestart();" th:field="${item.bidStartdate}"></input></td><td><span id="fdatestart" style="color:#FF0000"></span></td></tr>
+               <tr><td><b>Ngay ket thuc:</b></td><td><input type="text" name="ngayketthuc" onblur="validdateend();validsame();" th:field="${item.bidEnddate}"></input></td><td><span id="fdateend" style="color:#FF0000"></span></td></tr>
+               <tr><td><b>Gia ban/dau gia:</b></td><td><input type="text" id="dongia" name="dongia" onblur="validdongia();" th:field="${item.bidMinimum}"></input></td><td><span id="fdongia" style="color:#FF0000"></span></td></tr>
+               <tr><td></td><td colspan="2"><input type="submit" name="sub" value="Ban"></input></td></tr>
+               </table>
+               </form>
+           </div>  
+                
+       </div>         
+   
+            <!--END=GridProduct-->
+            <div class="clea "></div>
+            
+      </div>
+
+ </div>
+</div>
+<!--END-MAINBODY-->
+
+
+<!--FOOTER-->
+<div class="footer wp100">
+          <p align="center">Copyright: Tran Thanh Tue</p>  <p align="center">Mobile: 0166 3040977</p>         
+</div>
+<!--END-FOOTER-->
+</body>
+</html>

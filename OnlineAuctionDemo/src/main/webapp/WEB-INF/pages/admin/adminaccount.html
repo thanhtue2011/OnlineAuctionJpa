@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Admin</title>
+   
+  
+    <link th:href="@{/resources/css/admin/bootstrap.min.css}" rel="stylesheet"/>
+     <link rel="stylesheet" media="screen" th:href="@{/resources/css/genericons/genericons.css}" />
+    <link th:href="@{/resources/css/admin/sb-admin.css}" rel="stylesheet"/>
+    <link th:href="@{/resources/css/admin/morris.css}" rel="stylesheet"/>
+    <link th:href="@{/resources/css/admin/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+    
+     <script th:src="@{/resources/js/admin/jquery.js}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script th:src="@{/resources/js/admin/bootstrap.min.js}"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script th:src="@{/resources/js/admin/raphael.min.js}"></script>
+    <script th:src="@{/resources/js/admin/morris.min.js}"></script>
+    <script th:src="@{/resources/js/admin/morris-data.js}"></script>
+    
+     <link rel="stylesheet" th:href="@{//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css}"/>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+   <script type="text/javascript"  th:src="@{/resources/js/admin/dialog.js}"></script>
+</head>
+<body>
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Pages Admin</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-setup"></i> Thanh Tue <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a th:href="@{/admin/adminindex}"><i class="icon-index"></i>Index</a>
+                    </li>
+                   
+                    <li>
+                        <a th:href="@{/admin/adminaccount}"><i class="icon-account"></i> Account</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/admin/admincategory}"><i class="icon-cate"></i>Category</a>
+                    </li>
+                     <li>
+                        <a th:href="@{/admin/adminitem}"><i class="icon-item"></i>Item</a>
+                    </li>
+                    <li>
+                        <a href="forms.html"><i class="icon-item"></i> Forms</a>
+                    </li>
+                   
+                   
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Index <small>Welecome admin</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i>index
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+		    <div class="row">
+			<div class="col-lg-12">
+			<h2>List Accounts</h2>
+                        <div class="table-responsive">
+                            <table  class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Username</th>
+                                        <th>Full name</th>
+                                        <th>Address</th>
+ 										<th>Email</th>
+ 										<th>Block</th>
+										<th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="list : ${listaccount}">
+                                        <td th:text="${list.id_account}"></td>
+                                        <td th:text="${list.username}"></td>
+                                        <td th:text="${list.fullname}"></td>
+                                        <td th:text="${list.address}"></td>
+					 					<td th:text="${list.email}"></td>
+					 					<td th:text="${list.enable}"></td>
+                                        <td><form  th:action="@{/admin/block}" method="Post" th:object="${account}" th:id="${list.id_account}" ><input type="hidden" name="id" th:value="${list.id_account}" />
+        								</form><input type="button" value="Block" th:onclick="'javascript:Xoa(\''+${list.id_account}+'\');'"/>
+        								</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+						<form th:action="@{/addnew}" method="Get">
+						<input type="submit" value="Add new"/>
+						</form>
+			<nav>
+			  <ul class="pagination pagination-lg">
+			    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+			    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+			 <li class="active"><a href="#">2 </a></li>
+			<li class="active"><a href="#">3</a></li>
+			  </ul>
+			  </nav>
+                        </div>
+                  	
+			</div>
+                
+               </div>
+
+                
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+     
+
+</body>
+
+</html>

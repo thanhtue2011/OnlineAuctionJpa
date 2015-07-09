@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Online Auction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" th:href="@{//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css}"/>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+ <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript"  th:src="@{/resources/js/Bid.js}"></script>
+
+<script type="text/javascript" th:src="@{/resources/js/jquery.countdown.js}" ></script>
+<script type="text/javascript" th:src="@{/resources/js/jquery.countdown.min.js}" ></script>
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.css}" />
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/main.css}" />
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/style.css}" />
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/genericons/genericons.css}" />
+
+
+</head>
+<body>
+<!--HEADRER-->
+    
+     <div class="header">
+    
+     <div class="topheader">
+    	<div class="topheader-inner w1020px marginauto">	
+        	<ul class="pull-right">
+            
+                <li th:if="${user=='anonymousUser'}"><a th:href="@{/login}">Login</a></li>
+                
+                <li th:if="${user=='anonymousUser'}"><a th:href="@{/register}">Register</a></li>
+                 <li th:if="${user!='anonymousUser'}"><a th:href="@{/thongtin}"><span   th:text="${user}"></span></a></li>
+                <li><a th:href="@{/demnguoc}">Lien he</a></li>
+               <li><a th:if="${user!='anonymousUser'}" th:href="@{/logout}">Logout</a></li>
+            </ul>
+            
+        </div>
+    </div>
+
+   <div class="branch">
+    	<div class="w1020px marginauto">
+			<div class="pull-left">
+            <img src="resources/images/icon-logo/onlineauction.gif" />
+            </div>
+         </div>  
+        
+    </div> 
+	
+    <div class="navbar">
+    	<div class="navbar-inner">
+        	<div class="w1020px marginauto">
+            	<ul class="nav ">
+                    <li class="active">
+                    <a th:href="@{/account/index}">Home</a>
+                    </li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="#">Dang dau gia</a></li>
+                    <li><a href="#">Mua hang</a></li>
+                     <li><a th:href="@{/banhangdaugia}">Ban hang-Dau gia</a></li>
+                     <li th:if="${user!='anonymousUser'}"><a th:href="@{/capnhathang}">Cap nhat hang</a></li>
+                    <li><a href="#">Ket qua</a></li>
+                  
+                </ul>
+                <ul class="nav pull-right">
+                	
+                    <li class="divider-vertical1">
+                    <input type="text" name="search"></input>
+                    </li>
+		          <li class="divider-vertical2">
+		          <input type="submit" name="sbmsearch" value="Search"></input>
+		          </li>	
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div></div>
+
+</div>
+<!--END-HEADRER-->
+
+
+<!--MAINBODY-->
+<div class="mainbody left-fl">
+	<div class="mainbody-content w1020px marginauto">
+    	<div class="left-area w220px left-fl">
+        	<div class="block menu-list branch-mobile "><h4 class="pd5x10">Catelogy</h4>
+        	<!--Menu Sach  -->
+            	<ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Books</span>
+                           
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                <!-- menu bong -->
+                <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Bong</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Kinh</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                 <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Balo</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                 <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Usb</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Loa</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                <!--end catelogy  -->
+        
+          
+            <div class="block bannerw220"><!--Chi lay anh trong banner, Tai phan minh hoa dang lay trong phan logo-->
+            	<ul class="clean">
+                	<li><a href="#">
+                    	<img src="resources/images/banner/banner1.png" />
+                    	</a>
+                    </li>
+                    <li><a href="#">
+                    	<img src="resources/images/banner/banner2.png" />
+                    	</a>
+                    </li>
+                    <li><a href="#">
+                    	<img src="resources/images/product/Image 33.png" />
+                    	</a>
+                    </li>
+                    <li><a href="#">
+                    	<img src="resources/images/product/Image 32.png" />
+                    	</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        <!--Begin body-->
+        <div class="right-area w775px left-fl pd10">
+            <div class="clear wp100"></div>
+            <!--Nhom san pham-->
+            <div th:each="category : ${listcategory}" class="group product clearfix">
+            <!--title-->
+            <div class="header2">
+                <span class="title">
+                <a href="#">
+                <span th:text="${category.title}"></span>
+                </a>                
+                </span>
+            </div>
+         	
+            <div th:each="list : ${listitem}" th:if="${category.id_category==list.category.id_category and list.statusbidSell=='Ban online' and list.statusSucess==false}" class="grid w255px  left-fl mg-top5 gachbottom" >
+               <!--<div th:if="${#dates.format(current,'dd/MM/yyyy HH:mm') == #dates.format(list.bidEnddate,'dd/MM/yyyy HH:mm')}">-->
+                	<div class="left-fl imgProduct w110px">
+                    	<a href="#"><span class="imgProduct">
+                    	<img class="resizeP-Home" th:src="@{'image/'+${list.image}}" />
+                        </span></a>
+                    </div>
+                    
+                    <div class="clear mg-left30">
+                    		<h2><label th:text="@{'Title: '+${list.title}}"></label></h2>
+                        	<b><label th:text="@{'Cost: '+${list.bidMinimum}+' VND'}"></label></b>
+                    		</div>
+                    <div class="clear mg-left40">
+                        <form th:action="@{/savesellredirect}" method="Post" th:object="${bid}" th:id="${list.id}" >
+                    	<span class="btn btn-info " title="Click de xem chi tiet."><a th:href="@{'/chitietsell?iditem='+${list.id}}">Details</a></span>
+                    <input type="hidden" name="bidCurrent"/>
+                    <input type="hidden" name="bidSatus"/>
+                     <input type="hidden" name="id" id="id" th:value="${list.id}"/>
+                    <input type="hidden" name="bidminimum" id="bidminimum" th:value="${list.bidMinimum}"/>
+                   <input type="hidden" name="bidincremenent" id="bidincremenent" th:value="${list.bidIncremenent}" />
+                    
+                      <input class="btn btn-inverse " type="button"  title="Click de mua hang." value="Mua" th:onclick="'javascript:Bid(\''+${list.id}+'\');'"/>
+                     </form> 
+                     </div> 
+                
+              </div> 
+               
+       </div>         
+   </div>
+ </div>
+</div>
+<!--END-MAINBODY-->
+
+
+<!--FOOTER-->
+<div class="footer wp100">
+          <p align="center">Copyright: Tran Thanh Tue</p>  <p align="center">Mobile: 0166 3040977</p>         
+</div>
+<!--END-FOOTER-->
+</body>
+</html>

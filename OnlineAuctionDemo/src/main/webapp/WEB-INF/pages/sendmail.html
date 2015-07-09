@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Email with Spring MVC</title>
+</head>
+<body>
+        <h1>Sending e-mail with Spring MVC</h1>
+        <form method="post" th:action="@{/mail/sendmail}">
+            <table border="1">
+                <tr>
+                    <td>Form:</td>
+                    <td><input type="text" name="from" size="65" /></td>
+                </tr>
+                <tr>
+                    <td>To:</td>
+                    <td><input type="text" name="to" size="65" /></td>
+                </tr>
+                <tr>
+                    <td>Subject:</td>
+                    <td><input type="text" name="subject" size="65" /></td>
+                </tr>
+                <tr>
+                    <td>Message:</td>
+                    <td><textarea cols="50" rows="10" name="message"></textarea></td>
+                </tr>               
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Send E-mail" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+</body>
+</html>

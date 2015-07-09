@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Online Auction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.css}" />
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/main.css}" />
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/style.css}" />
+<script type="text/javascript" charset="UTF-8"  th:src="@{/resources/js/format.js}"></script>
+
+</head>
+<body>
+<!--HEADRER-->
+<div class="header">
+    
+     <div class="topheader">
+    	<div class="topheader-inner w1020px marginauto">	
+        	<ul class="pull-right">
+            
+                <li th:if="${user=='anonymousUser'}"><a th:href="@{/login}">Login</a></li>
+                
+                <li th:if="${user=='anonymousUser'}"><a th:href="@{/register}">Register</a></li>
+                 <li th:if="${user!='anonymousUser'}"><a th:href="@{/thongtin}"><span   th:text="${#httpServletRequest.remoteUser}"></span></a></li>
+                <li><a th:href="@{/demnguoc}">Lien he</a></li>
+               <li><a th:if="${user!='anonymousUser'}" th:href="@{/logout}">Logout</a></li>
+            </ul>
+            
+        </div>
+    </div>
+    
+   <div class="branch">
+    	<div class="w1020px marginauto">
+			<div class="pull-left">
+            <img src="resources/images/icon-logo/onlineauction.gif" />
+            </div>
+         </div>  
+        
+    </div> 
+	
+    <div class="navbar">
+    	<div class="navbar-inner">
+        	<div class="w1020px marginauto">
+            	<ul class="nav ">
+                    <li class="active">
+                    <a th:href="@{/account/index}">Home</a>
+                    </li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="#">Dang dau gia</a></li>
+                    <li><a th:href="${user!='anonymousUser'">Mua hang</a></li>
+                     <li><a href="#">Ban hang-Dau gia</a></li>
+                    <li><a href="#">Ket qua</a></li>
+                  
+                </ul>
+                <ul class="nav pull-right">
+                	
+                    <li class="divider-vertical1">
+                    <input type="text" name="search"></input>
+                    </li>
+		          <li class="divider-vertical2">
+		          <input type="submit" name="sbmsearch" value="Search"></input>
+		          </li>	
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div></div>
+
+</div>
+<!--END-HEADRER-->
+
+
+<!--MAINBODY-->
+<div class="mainbody left-fl">
+	<div class="mainbody-content w1020px marginauto">
+    	<div class="left-area w220px left-fl">
+        	<div class="block menu-list branch-mobile "><h4 class="pd5x10">Catelogy</h4>
+        	<!--Menu Sach  -->
+            	<ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Books</span>
+                           
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                <!-- menu bong -->
+                <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Bong</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Kinh</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                 <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Balo</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                 <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Usb</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Loa</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                <!--end catelogy  -->
+        
+          
+            <div class="block bannerw220"><!--Chi lay anh trong banner, Tai phan minh hoa dang lay trong phan logo-->
+            	<ul class="clean">
+                	<li><a href="#">
+                    	<img src="resources/images/banner/banner1.png" />
+                    	</a>
+                    </li>
+                    <li><a href="#">
+                    	<img src="resources/images/banner/banner2.png" />
+                    	</a>
+                    </li>
+                    <li><a href="#">
+                    	<img src="resources/images/product/Image 33.png" />
+                    	</a>
+                    </li>
+                    <li><a href="#">
+                    	<img src="resources/images/product/Image 32.png" />
+                    	</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        <!--Vung ben phai--><!--Vung ben phai--><!--Vung ben phai--><!--Vung ben phai--><!--Vung ben phai-->
+        <div class="right-area w775px left-fl pd10">
+   
+        	<!--END=Accessories-->
+            <div class="clear wp100"></div>
+            <!--GridProduct-->
+            
+            <!--GridProduct-->
+            <!--Nhom san pham-->
+            <div class="group product clearfix">
+            <!--title-->
+            <div class="header2">
+                <span class="title">
+                <span>
+                	<a href="#">Form Update Imformation</a>
+                </span>
+                </span>
+            </div>
+            <form th:action="@{/doimatkhau}" th:object="${account}" method="Get">
+         	<input type="submit" value="Change Password"/>
+         	</form>
+           <p th:if="${msg!=null} " th:text="@{${msg}+''}" style="color:#FF0000"></p>
+         <div class="formregister" >
+               <form th:action="@{/savethongtin}" th:object="${account}" method="post" id="formlogin" onsubmit="return checkForm();">
+               <table>
+               <tr><td><b>Username:</b></td><td><input type="hidden" name="id_account" th:value="${account.id_account}"></input><input type="text" id="Username" name="disusername" th:value="${account.username}" th:disabled="true"></input><input type="hidden" name="username" th:value="${account.username}"/></td><td><span id="fusername" style="color:#FF0000"></span></td></tr>
+               <tr><td><b>Fullname:</b></td><td><input type="text" id="Fullname" name="fullname" th:value="${account.fullname}" onblur="validfullname();"></input></td><td><span id="ffullname" style="color:#FF0000"></span></td></tr>
+              <tr><td><b>Address:</b></td><td><input type="text" id="Address" name="address" th:value="${account.address}" onblur="validaddress();"></input></td><td><span id="faddress" style="color:#FF0000"></span></td></tr>
+               <tr><td><b>Email:</b></td><td><input type="text" id="Email" name="email" th:value="${account.email}" onblur="validemail();"></input></td><td><span id="femail" style="color:#FF0000"></span></td></tr>
+               <tr><td></td><td colspan="2"><input type="submit" name="sub" value="Update"></input></td></tr>
+               </table> 
+               </form>
+           </div>  
+                
+       </div>         
+   
+            <!--END=GridProduct-->
+            <div class="clea "></div>
+            
+      </div>
+
+ </div>
+</div>
+<!--END-MAINBODY-->
+
+
+<!--FOOTER-->
+<div class="footer wp100">
+          <p align="center">Copyright: Tran Thanh Tue</p>  <p align="center">Mobile: 0166 3040977</p>         
+</div>
+<!--END-FOOTER-->
+</body>
+</html>

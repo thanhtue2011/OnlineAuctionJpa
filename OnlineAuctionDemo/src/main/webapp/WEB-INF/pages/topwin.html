@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Online Auction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" th:href="@{//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css}"/>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+ <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript"  th:src="@{/resources/js/Bid.js}"></script>
+
+<script type="text/javascript" th:src="@{/resources/js/jquery.countdown.js}" ></script>
+<script type="text/javascript" th:src="@{/resources/js/jquery.countdown.min.js}" ></script>
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.css}" />
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/main.css}" />
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/style.css}" />
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/genericons/genericons.css}" />
+
+
+</head>
+<body>
+<!--HEADRER-->
+<div class="header">
+    
+     <div class="topheader">
+    	<div class="topheader-inner w1020px marginauto">	
+        	<ul class="pull-right">
+            
+                <li th:if="${user=='anonymousUser'}"><a th:href="@{/login}">Login</a></li>
+                
+                <li th:if="${user=='anonymousUser'}"><a th:href="@{/register}">Register</a></li>
+                 <li th:if="${user!='anonymousUser'}"><a th:href="@{/thongtin}"><span   th:text="${user}"></span></a></li>
+                <li><a th:href="@{/mail/sendmail}">Lien he</a></li>
+               <li><a th:if="${user!='anonymousUser'}" th:href="@{/logout}">Logout</a></li>
+            </ul>
+            
+        </div>
+    </div>
+    
+   <div class="branch">
+    	<div class="w1020px marginauto">
+			<div class="pull-left">
+            <img src="resources/images/icon-logo/onlineauction.gif" />
+            </div>
+         </div>  
+        
+    </div> 
+	
+    <div class="navbar">
+    	<div class="navbar-inner">
+    	 <form th:action="@{/search}" th:object="${item}" method="GET">
+        	<div class="w1020px marginauto">
+            	<ul class="nav ">
+                    <li class="active">
+                    <a th:href="@{/index}">Home</a>
+                    </li>
+                    <li class="divider-vertical"></li>
+                    <li><a th:href="@{/sellredirect}">Mua hang</a></li>
+                     <li><a th:href="@{/banhangdaugia}">Ban hang-Dau gia</a></li>
+                     <li th:if="${user!='anonymousUser'}"><a th:href="@{/capnhathang}">Cap nhat hang</a></li>
+                    <li><a href="#">Top Win</a></li>
+                </ul>
+                <ul class="nav pull-right">
+                	
+                    <li class="divider-vertical1">
+                    <input type="text" name="keyword"></input>
+                    </li>
+		          <li class="divider-vertical2">
+		          <input type="submit" value="Search"></input>
+		          </li>	
+                </ul>
+               
+            </div>
+             </form>
+        </div>
+    </div>
+    <div></div>
+
+</div>
+<!--END-HEADRER-->
+
+
+<!--MAINBODY-->
+<div class="mainbody left-fl">
+	<div class="mainbody-content w1020px marginauto">
+    	<div class="left-area w220px left-fl">
+        	<div class="block menu-list branch-mobile "><h4 class="pd5x10">Catelogy</h4>
+        	<!--Menu Sach  -->
+            	<ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a th:href="@{/books}" >
+                    		<span class="branch-mobile">Books</span>
+                           
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                <!-- menu bong -->
+                <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a th:href="@{/bong}" >
+                    		<span class="branch-mobile">Bong</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a th:href="@{/kinh}" >
+                    		<span class="branch-mobile">Kinh</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                 <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a th:href="@{/balo}" >
+                    		<span class="branch-mobile">Balo</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                 <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a th:href="@{/usb}" >
+                    		<span class="branch-mobile">Usb</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                <!-- Menu kinh -->
+                 <ul class="nav nav-list w190px bs-docs-sidenav ">
+                	<li class="active">
+                        <a href="#" >
+                    		<span class="branch-mobile">Loa</span>
+                            
+                        </a>
+                        
+                    </li> 
+                    
+                </ul>
+                <!--end catelogy  -->
+        
+          
+            <div class="block bannerw220"><!--Chi lay anh trong banner, Tai phan minh hoa dang lay trong phan logo-->
+            	<ul class="clean">
+                	<li><a href="#">
+                    	<img src="resources/images/banner/banner1.png" />
+                    	</a>
+                    </li>
+                    <li><a href="#">
+                    	<img src="resources/images/banner/banner2.png" />
+                    	</a>
+                    </li>
+                    <li><a href="#">
+                    	<img src="resources/images/product/Image 33.png" />
+                    	</a>
+                    </li>
+                    <li><a href="#">
+                    	<img src="resources/images/product/Image 32.png" />
+                    	</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        <!--Begin body-->
+        <div class="right-area w775px left-fl pd10">
+            <div class="clear wp100"></div>
+            <!--Nhom san pham-->
+            <table border="1">
+            <tr>
+            <td>STT</td>
+            <td>Id</td>
+            <td>Ten hang</td>
+            <td>Gia</td>
+            <td>User</td>
+            </tr>
+            <tr th:each="list,s : ${topwin}">
+            <td th:text="${s.index+1}"></td>
+            <td th:text="${list.item.id}"></td>
+            <td th:text="${list.item.title}"></td>
+            <td th:text="${list.item.bidCurrent}"></td>
+            <td th:text="${list.account.username}"></td>
+            </tr>
+            </table>
+           
+        </div>
+ </div>
+</div>
+<!--END-MAINBODY-->
+
+
+<!--FOOTER-->
+<div class="footer wp100">
+          <p align="center">Copyright: Tran Thanh Tue</p>  <p align="center">Mobile: 0166 3040977</p>         
+</div>
+<!--END-FOOTER-->
+<script type="text/javascript">
+		$('[data-countdown]').each(function() {
+			var $this = $(this), finalDate = $(this).data('countdown');
+			$this.countdown(finalDate, function(event) {
+				$this.html(event.strftime('%D days %H:%M:%S'));
+			}).on('finish.countdown', function(event) {
+				$this.html("JustStop");
+				$('button#countdown').addClass('disabled');
+			});
+		});
+	</script>
+</body>
+</html>

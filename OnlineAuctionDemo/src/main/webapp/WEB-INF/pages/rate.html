@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css}" rel="stylesheet"/>
+<script th:src="@{//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js}"></script>
+<title>Insert title here</title>
+<script>
+$(function(){
+    $('.rating-select .btn').on('mouseover', function(){
+        $(this).removeClass('btn-default').addClass('btn-warning');
+        $(this).prevAll().removeClass('btn-default').addClass('btn-warning');
+        $(this).nextAll().removeClass('btn-warning').addClass('btn-default');
+    });
+
+    $('.rating-select').on('mouseleave', function(){
+        active = $(this).parent().find('.selected');
+        if(active.length) {
+            active.removeClass('btn-default').addClass('btn-warning');
+            active.prevAll().removeClass('btn-default').addClass('btn-warning');
+            active.nextAll().removeClass('btn-warning').addClass('btn-default');
+        } else {
+            $(this).find('.btn').removeClass('btn-warning').addClass('btn-default');
+        }
+    });
+
+    $('.rating-select .btn').click(function(){
+        if($(this).hasClass('selected')) {
+            $('.rating-select .selected').removeClass('selected');
+        } else {
+            $('.rating-select .selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    });
+});
+</script>
+</head>
+<body>
+
+<div class="rating-select">
+    <div class="btn btn-default btn-sm" th:each="i : ${#numbers.sequence(1,5)}"><a th:href="@{'/rate/'+${i}}"><span class="glyphicon glyphicon-star-empty"></span></a></div>
+</div>
+</body>
+</html>
